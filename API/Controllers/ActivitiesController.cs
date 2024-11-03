@@ -48,5 +48,13 @@ namespace API.Controllers
         {
             return HandleResult(await Mediator.Send(new UpdateAttendance.Command { Id = id }));
         }
+
+        [HttpGet("idlastactivity/{username}")]
+        public async Task<IActionResult> GetIdLastActivityCreated(string username)
+        {
+            return HandleResult(await Mediator.Send(new GetLastActivityCreated.Query { Username = username }));
+        }
+        
+
     }
 }
