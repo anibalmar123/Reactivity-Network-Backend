@@ -19,7 +19,7 @@ namespace Application.Comments
         public class Command : IRequest<Result<CommentDto>>
         {
             public string Body { get; set; }
-            public Guid ActivityId { get; set; }
+            public int ActivityId { get; set; }
         }
 
         public class CommandValidator : AbstractValidator<Command>
@@ -57,7 +57,7 @@ namespace Application.Comments
                 {
                     Author = user,
                     Activity = activity,
-                    Body = request.Body,
+                    Body = request.Body
                 };
 
                 activity.Comments.Add(comment);
